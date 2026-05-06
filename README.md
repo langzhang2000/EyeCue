@@ -29,7 +29,7 @@ Official implementation of the IJCAI 2026 paper:
 **"EyeCue: Driver Cognitive Distraction Detection via Gaze-Empowered Egocentric Video Understanding"**
 
 <p align="center">
-  <img src="./img/framework.pdf" alt="EyeCue Framework" width=70%>
+  <img src="./framework.png" alt="EyeCue Framework" width=90%>
   <br>
   <em>EyeCue fuses egocentric video and gaze sequences through cross-attention to detect cognitive distraction in drivers.</em>
 </p>
@@ -56,7 +56,7 @@ The model is trained end-to-end for binary classification — distinguishing cog
 - PyTorch 2.6.0
 
 ```bash
-git clone https://github.com/<your-username>/EyeCue.git
+git clone https://github.com/langzhang2000/EyeCue.git
 cd EyeCue
 
 # Install PyTorch with CUDA 11.8
@@ -174,12 +174,3 @@ If you find this work useful, please cite:
 }
 ```
 
-## Contact
-
-For questions or feedback, feel free to open an issue or contact:
-
-- Lang Zhang (Virginia Tech) — [langzhang@vt.edu](mailto:langzhang@vt.edu)
-- JinYi Yoon (Inha University) — [jinyiyoon@inha.ac.kr](mailto:jinyiyoon@inha.ac.kr)
-- Matthew Corbett (Army Cyber Institute at West Point) — [matthew.corbett@westpoint.edu](mailto:matthew.corbett@westpoint.edu)
-- Abhijit Sarkar (Virginia Tech) — [asarkar@vtti.vt.edu](mailto:asarkar@vtti.vt.edu)
-- Bo Ji (Virginia Tech) — [boji@vt.edu](mailto:boji@vt.edu)
