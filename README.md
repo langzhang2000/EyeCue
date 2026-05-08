@@ -71,30 +71,14 @@ The pretrained TimeSformer backbone (`facebook/timesformer-base-finetuned-k600`)
 
 ## Dataset
 
-EyeCue is trained and evaluated on egocentric driving videos paired with synchronized gaze recordings.
+EyeCue is trained and evaluated on **CogDrive**, our egocentric driving dataset with synchronized gaze recordings.
 
-**Data file format** — each line in a list file contains three space-separated fields:
+**Download:** [CogDrive Dataset (Google Drive)](https://drive.google.com/drive/folders/1m3Xh8aVtOiX9IGyhLH9TlP4nX6gSrWi3?usp=sharing)
 
-```
-/path/to/video.mp4  /path/to/gaze.txt  0
-/path/to/video2.mp4 /path/to/gaze2.txt 1
-```
-
-| Field | Description |
-|---|---|
-| `video_path` | Egocentric driving video (`.mp4`) |
-| `gaze_path` | Per-frame gaze coordinates (`.txt`), one `x y` pair per line |
-| `label` | `0` = attentive, `1` = cognitively distracted |
-
-**Gaze file format:**
-
-```
-481.2 362.7
-490.1 358.3
-...
-```
-
-Each row corresponds to one video frame. The (x, y) coordinates are in pixel space relative to the 960×720 frame resolution.
+The dataset contains three folders:
+- `all_gaze_coordinate` — gaze point data for all recordings
+- `all_video_heatmap` — videos with gaze heatmap overlay
+- `all_video_raw_resize` — resized raw videos
 
 ## Getting Started
 
