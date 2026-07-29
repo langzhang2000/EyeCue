@@ -20,13 +20,14 @@
 
   <div align="center">
 
+  [![arXiv](https://img.shields.io/badge/arXiv-2605.07859-b31b1b)](https://arxiv.org/abs/2605.07859)
   [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
   </div>
 </p>
 
 Official implementation of the IJCAI 2026 paper:
-**"EyeCue: Driver Cognitive Distraction Detection via Gaze-Empowered Egocentric Video Understanding"**
+**"[EyeCue: Driver Cognitive Distraction Detection via Gaze-Empowered Egocentric Video Understanding](https://arxiv.org/abs/2605.07859)"**
 
 <p align="center">
   <img src="./framework.png" alt="EyeCue Framework" width=90%>
