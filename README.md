@@ -209,11 +209,15 @@ If you find this work useful, please cite:
 
 ```bibtex
 @inproceedings{zhang2026eyecue,
-  title     = {EyeCue: Driver Cognitive Distraction Detection via Gaze-Empowered Egocentric Video Understanding},
-  author    = {Zhang, Lang and Yoon, JinYi and Corbett, Matthew and Sarkar, Abhijit and Ji, Bo},
-  booktitle = {Proceedings of the Thirty-Fifth International Joint Conference on
-               Artificial Intelligence (IJCAI)},
-  year      = {2026}
+  title         = {EyeCue: Driver Cognitive Distraction Detection via Gaze-Empowered Egocentric Video Understanding},
+  author        = {Zhang, Lang and Yoon, JinYi and Corbett, Matthew and Sarkar, Abhijit and Ji, Bo},
+  booktitle     = {Proceedings of the Thirty-Fifth International Joint Conference on
+                   Artificial Intelligence (IJCAI)},
+  year          = {2026},
+  eprint        = {2605.07859},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2605.07859}
 }
 ```
 
