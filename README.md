@@ -82,6 +82,26 @@ The dataset contains three folders:
 
 ## Getting Started
 
+### Data list format
+
+Training, validation and test splits are plain text files with one clip per
+line, three space-separated fields:
+
+```
+<video_path> <gaze_path> <label>
+```
+
+- `video_path` — an `.mp4` clip
+- `gaze_path` — a `.txt` file with `n` rows and 2 columns, the `(x, y)` gaze
+  point of each frame (pixel coordinates in a 960×720 frame)
+- `label` — `0` (attentive) or `1` (cognitively distracted)
+
+Example:
+
+```
+/data/clips/BDDA_2000.mp4 /data/gaze/BDDA_2000.txt 1
+```
+
 ### Training
 
 ```bash
@@ -113,12 +133,50 @@ Checkpoints are saved as:
 - `best_model.pth` — full model at best validation accuracy
 - `eye_video_encoder.pth` — video encoder weights only
 
-### Batch Training
+### Inference
 
-To run multiple dataset splits in sequence:
+Evaluate a trained checkpoint over a test list:
 
 ```bash
-bash new_test.sh
+python infer.py \
+    --test_list  /path/to/test.txt \
+    --checkpoint checkpoints/best_model.pth \
+    --out_csv    predictions.csv
+```
+
+This reports accuracy, precision, recall, F1 and the confusion matrix, and
+writes per-sample predictions to `--out_csv` with the columns
+`filename, label, pred, prob_distracted`.
+
+| Argument | Default | Description |
+|---|---|---|
+| `--test_list` | required | Path to test list file |
+| `--checkpoint` | `checkpoints/best_model.pth` | Checkpoint written by `new_train.py` |
+| `--out_csv` | `predictions.csv` | Where to write per-sample predictions |
+| `--batch_size` | `4` | Batch size |
+| `--clip_len` | `8` | Number of frames sampled per clip |
+| `--num_workers` | `1` | DataLoader worker threads |
+| `--seed` | `42` | Random seed |
+| `--device` | auto | `cuda` or `cpu` |
+
+> **Note on reproducibility.** `VideoGazeDataset` samples a *random* window of
+> `clip_len` consecutive frames from each clip, so accuracy varies slightly
+> between runs on the same checkpoint. `--seed` fixes the sampled windows and
+> makes a run reproducible.
+
+## Repository Structure
+
+```
+models/
+  video_encoder.py   TimeSformer backbone; temporal embeddings interpolated
+                     to support arbitrary clip lengths
+  gaze_encoder.py    Linear projection + learnable CLS token + self-attention
+  semantic.py        Stacked cross-attention blocks (gaze queries video patches)
+  head.py            Classification head
+data/
+  dataset.py         VideoGazeDataset — paired video clips and gaze sequences
+new_train.py         Training entry point (includes gaze-guided patch selection)
+infer.py             Batch inference / evaluation
 ```
 
 ## Model Architecture

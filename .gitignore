@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Model weights and checkpoints
+*.pth
+*.pt
+*.ckpt
+checkpoints/
+checkpoints_run*/
+
+# Training logs and run outputs
+*.log
+*.out
+run*_logs/
+
+# Prediction dumps
+predictions.csv
+best_val_predictions_*.csv
+
+# Experiment directories (not part of the released code)
+failure_analysis/
+gaze_perturbation_exp/
+tools/
+
+# Datasets
+data/*.csv
+data/*.txt
+*.mp4
+
+# Local editor / tooling config
+.claude/
+.vscode/
+.idea/
+.DS_Store
